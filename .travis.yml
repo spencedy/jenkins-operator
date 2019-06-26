@@ -24,7 +24,7 @@ services:
 script:
 - make config="config-spencedy.env" verify
 - make config="config-spencedy.env" docker-build
-- make config="config-spencedy.env" docker-push
+- docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD && make config="config-spencedy.env" docker-push
 
 cache:
   directories:
