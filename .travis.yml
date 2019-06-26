@@ -16,10 +16,13 @@ matrix:
 
 before_install:
 - go get golang.org/x/lint/golint
-- make go-dependencies
+- make confg="config-spencedy.env" go-dependencies
+
+services:
+  docker
 
 script:
-- make verify
+- make config="config-spencedy.env" verify
 
 cache:
   directories:
