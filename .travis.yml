@@ -25,7 +25,7 @@ script:
 - make config="config-spencedy.env" verify
 - make config="config-spencedy.env" docker-build
 - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD && make config="config-spencedy.env" docker-push
-- if [[ $TRAVIS_PULL_REQUEST == false] && [ $TRAVIS_BRANCH == "master" ]]; then
+- if [[ "$TRAVIS_PULL_REQUEST" == false ] && [ "$TRAVIS_BRANCH" == "master" ]]; then
     docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD && 
       make config="config-spencedy.env" docker-release-version
       make config="config-spencedy.env" docker-release-latest
